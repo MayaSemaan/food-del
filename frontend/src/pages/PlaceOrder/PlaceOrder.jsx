@@ -29,6 +29,12 @@ const PlaceOrder = () => {
 
   const placeOrder = async (event) => {
     event.preventDefault();
+
+    if (!token) {
+      alert("Please login first");
+      return;
+    }
+
     let orderItems = [];
     food_list.map((item) => {
       if (cartItems[item._id] > 0) {

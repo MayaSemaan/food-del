@@ -7,6 +7,7 @@ import axios from "axios";
 const BASE_URL = "https://food-del-jv23.onrender.com";
 
 const LoginPopup = ({ setShowLogin }) => {
+  const { setToken } = useContext(StoreContext);
   const [currState, setCurrState] = useState("Login");
   const [data, setData] = useState({
     name: "",
@@ -85,7 +86,7 @@ const LoginPopup = ({ setShowLogin }) => {
         </button>
         <div className="login-popup-condition">
           <input type="checkbox" required />
-          <p>By continuing, i agree to the terms of use & privacy policy.</p>
+          <p>By continuing, I agree to the terms of use & privacy policy.</p>
         </div>
         {currState === "Login" ? (
           <p>

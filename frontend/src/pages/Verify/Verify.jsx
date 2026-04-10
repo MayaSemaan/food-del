@@ -14,18 +14,13 @@ const Verify = () => {
   const navigate = useNavigate();
 
   const verifyPayment = async () => {
-    try {
-      const response = await axios.post(`${BASE_URL}/api/order/verify`, {
-        success,
-        orderId,
-      });
-
-      if (response.data.success) {
-        navigate("/myorders");
-      } else {
-        navigate("/");
-      }
-    } catch (error) {
+    const response = await axios.post(BASE_URL + "/api/order/verify", {
+      success,
+      orderId,
+    });
+    if (response.data.success) {
+      navigate("/myorders");
+    } else {
       navigate("/");
     }
   };

@@ -3,8 +3,11 @@ import "./PlaceOrder.css";
 import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+const BASE_URL = "https://food-del-jv23.onrender.com";
+
 const PlaceOrder = () => {
-  const { getTotalCartAmount, token, food_list, cartItems, url } =
+  const { getTotalCartAmount, token, food_list, cartItems } =
     useContext(StoreContext);
   const [data, setData] = useState({
     firstName: "",
@@ -39,7 +42,7 @@ const PlaceOrder = () => {
       items: orderItems,
       amount: getTotalCartAmount() + 2,
     };
-    let response = await axios.post(url + "/api/order/place", orderData, {
+    let response = await axios.post(BASE_URL + "/api/order/place", orderData, {
       headers: { token },
     });
     if (response.data.success) {
@@ -58,7 +61,7 @@ const PlaceOrder = () => {
     } else if (getTotalCartAmount() === 0) {
       navigate("/cart");
     }
-  }, [token]);
+  }, [token, getTotalCartAmount, navigate]);
 
   return (
     <form onSubmit={placeOrder} className="place-order">

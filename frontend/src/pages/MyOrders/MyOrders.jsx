@@ -4,17 +4,29 @@ import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
 import { assets } from "../../assets/assets";
 
+const BASE_URL = "https://food-del-jv23.onrender.com";
+
 const MyOrders = () => {
-  const { url, token } = useContext(StoreContext);
   const [data, setData] = useState([]);
 
+  const token = localStorage.getItem("token");
+
   const fetchOrders = async () => {
-    const response = await axios.post(
-      url + "/api/order/userorders",
-      {},
-      { headers: { token } }
-    );
-    setData(response.data.data);
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/order/userorders`,
+        {},
+        {
+          headers: { token },
+        },
+      );
+
+      if (response.data.success) {
+        setData(response.data.data);
+      }
+    } catch (error) {
+      console.log("Error fetching orders");
+    }
   };
 
   useEffect(() => {

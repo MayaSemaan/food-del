@@ -30,32 +30,47 @@ const PlaceOrder = () => {
   const placeOrder = async (event) => {
     event.preventDefault();
 
+    console.log("TOKEN:", token); // 👈 DEBUG
+
     if (!token) {
       alert("Please login first");
       return;
     }
 
-    const orderItems = food_list
-      .filter((item) => cartItems[item._id] > 0)
-      .map((item) => ({
-        ...item,
-        quantity: cartItems[item._id],
-      }));
-    let orderData = {
-      address: data,
-      items: orderItems,
-      amount: getTotalCartAmount() + 2,
-    };
-    let response = await axios.post(BASE_URL + "/api/order/place", orderData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    if (response.data.success) {
-      const { session_url } = response.data;
-      window.location.replace(session_url);
-    } else {
-      alert("Error");
+    try {
+      const orderItems = food_list
+        .filter((item) => cartItems[item._id] > 0)
+        .map((item) => ({
+          ...item,
+          quantity: cartItems[item._id],
+        }));
+
+      const orderData = {
+        address: data,
+        items: orderItems,
+        amount: getTotalCartAmount() + 2,
+      };
+
+      const response = await axios.post(
+        BASE_URL + "/api/order/place",
+        orderData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      console.log("RESPONSE:", response.data); // 👈 DEBUG
+
+      if (response.data.success) {
+        window.location.replace(response.data.session_url);
+      } else {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.log("ERROR:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Something went wrong");
     }
   };
 

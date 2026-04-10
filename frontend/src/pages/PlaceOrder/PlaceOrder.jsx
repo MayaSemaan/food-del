@@ -61,7 +61,7 @@ const PlaceOrder = () => {
     } else if (getTotalCartAmount() === 0) {
       navigate("/cart");
     }
-  }, [token, getTotalCartAmount, navigate]);
+  }, [token]);
 
   return (
     <form onSubmit={placeOrder} className="place-order">

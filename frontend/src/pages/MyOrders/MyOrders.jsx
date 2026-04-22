@@ -17,7 +17,7 @@ const MyOrders = () => {
         `${BASE_URL}/api/order/userorders`,
         {},
         {
-          headers: { token },
+          headers: { Authorization: `Bearer ${token}` },
         },
       );
 
@@ -57,7 +57,6 @@ const MyOrders = () => {
               <p>
                 <span>&#x25cf;</span> <b>{order.status}</b>
               </p>
-              <button onClick={fetchOrders}>Track Order</button>
             </div>
           );
         })}

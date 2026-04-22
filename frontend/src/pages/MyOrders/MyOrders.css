@@ -11,7 +11,7 @@
 
 .my-orders-order {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 1fr 1fr 2fr 1fr;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 2fr;
   align-items: center;
   gap: 30px;
   font-size: 14px;
@@ -32,22 +32,11 @@
   font-weight: 500;
   color: #454545;
 }
-.my-orders-order button {
-  border: none;
-  padding: 12px 0px;
-  border-radius: 4px;
-  background-color: #ffe1e1;
-  cursor: pointer;
-  color: #454545;
-}
 
 @media (max-width: 900px) {
   .my-orders-order {
     grid-template-columns: 1fr 2fr 1fr;
     row-gap: 5px;
     font-size: 12px;
-  }
-  .my-orders-order button {
-    font-size: 10px;
   }
 }

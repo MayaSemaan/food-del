@@ -12,7 +12,7 @@
 
 .cart-items-item {
   margin: 10px 0px;
-  color: black;
+  color: #bac1c9;
 }
 
 .cart-items-item img {
@@ -44,7 +44,7 @@
 .cart-total-details {
   display: flex;
   justify-content: space-between;
-  color: #555;
+  color: grey;
 }
 
 .cart-total hr {

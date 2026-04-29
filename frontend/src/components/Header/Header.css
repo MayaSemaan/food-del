@@ -20,12 +20,12 @@
 
 .header-contents h2 {
   font-weight: 500;
-  color: white;
+  color: #dce1e7;
   font-size: max(4.5vw, 22px);
 }
 
 .header-contents p {
-  color: white;
+  color: #e9eef5;
   font-size: 1vw;
 }
 

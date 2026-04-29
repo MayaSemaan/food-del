@@ -34,7 +34,12 @@
   max-width: 120px;
   border: none;
   padding: 10px;
-  background-color: black;
+  background-color: #6a6868;
   color: white;
   cursor: pointer;
+}
+.add input,
+.add select,
+.add textarea {
+  background-color: #dfdddd;
 }

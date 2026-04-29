@@ -1,6 +1,5 @@
 .footer {
-  color: #d9d9d9;
-  background-color: #323232;
+  color: #d1d5db;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +30,7 @@
 }
 
 .footer-content-right h2 {
-  color: white;
+  color: #d1d5db;
 }
 
 .footer-social-icons img {

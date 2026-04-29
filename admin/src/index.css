@@ -9,7 +9,7 @@
 
 body {
   min-height: 100vh;
-  background-color: #fcfcfc;
+  background-color: #191919;
 }
 
 a {
@@ -20,7 +20,7 @@ a {
 hr {
   border: none;
   height: 1px;
-  background-color: #a9a9a9;
+  background-color: #3b3b3b;
 }
 
 .app-content {
